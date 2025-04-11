@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    container_name: matrix-calculation
+    ports:
+      - "8020:80"  # Мапінг портів для доступу до вашого додатку на порту 8080
+    volumes:
+      - .:/var/www/html  # Монтуючи ваші файли з локальної машини в контейнер
+    networks:
+      - matrix-network
+
+networks:
+  matrix-network:
+    driver: bridge

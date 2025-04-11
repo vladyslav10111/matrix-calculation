@@ -1,0 +1,269 @@
+.matrix-calculator__main-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#matrix-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.disabled-form label[for="first-number"],
+.disabled-form label[for="second-number"],
+.disabled-form input[type="number"]{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.matrix-calculator__numbers label {
+    font-weight: 600;
+}
+
+.matrix-calculator__numbers {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.matrix-calculator__group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.matrix-calculator__radios {
+    display: flex;
+    gap: 20px;
+}
+
+.matrix-calculator__submit-wrap {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+input[type=number] {
+    box-sizing: border-box;
+    height: 30px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    outline: 0;
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid black;
+}
+
+.matrix-calculator__numbers input:target,
+.matrix-calculator__numbers input:focus,
+.matrix-calculator__numbers input:active {
+    outline: 0;
+    box-shadow: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.matrix-calculator__radios label {
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: transparent;
+    border: 1px solid #000000;
+    border-radius: 2px;
+    color: #000000;
+    transition: all ease 0.3s;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.matrix-calculator__radios label:has(.selected-option) {
+    background: #000000;
+    color: #FFFFFF;
+    transition: all ease 0.3s;
+}
+
+.matrix-calculator__radios input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #000000;
+    color: #fff;
+    border-radius: 2px;
+    transition: all ease 0.3s;
+}
+
+button[type="submit"] {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2px;
+    transition: all ease 0.3s;
+}
+
+button[type="submit"] span {
+    position: absolute;
+    display: block;
+}
+
+.matrix-calculator__clear {
+    text-decoration: underline;
+    letter-spacing: 1px;
+}
+
+@keyframes btnAnimA {
+    0% {
+        left: -100%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+button[type="submit"] span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #000000);
+    animation: btnAnimA 2500ms linear infinite;
+    animation-fill-mode: backwards;
+    animation-play-state: running;
+}
+
+
+@keyframes btnAnimB {
+    0% {
+        top: -100%
+    }
+    50% {
+        top: 100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+button[type="submit"] span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #000000);
+    animation: btnAnimB 2500ms linear infinite;
+    animation-delay: 300ms;
+}
+
+@keyframes btnAnimC {
+    0% {
+        right: -100%;
+    }
+    50% {
+        right: 100%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+button[type="submit"] span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #000000);
+    animation: btnAnimC 2500ms linear infinite;
+    animation-delay: 600ms;
+}
+
+@keyframes btnAnimD {
+    0% {
+        bottom: -100%;
+    }
+    50%,100% {
+        bottom: 100%;
+    }
+}
+
+button[type="submit"] span:nth-child(4) {
+    left: 0;
+    bottom: -100%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #000000);
+    animation: btnAnimD 2500ms linear infinite;
+    animation-delay: 900ms;
+}
+
+@media screen and (min-width: 1024px){
+    .matrix-calculator__radios label {
+        min-width: 140px;
+    }
+
+    .matrix-calculator__numbers label {
+        font-size: 24px;
+    }
+
+    input[type=number] {
+        width: 60px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1023.98px){
+    .matrix-calculator__radios {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .matrix-calculator__radios label {
+        flex-basis: calc((100% - 20px) / 2);
+        width: fit-content;
+        max-width: fit-content;
+        min-width: 150px;
+    }
+
+    input[type=number] {
+        width: 30px;
+        font-size: 16px;
+    }
+
+    .matrix-calculator__numbers label {
+        font-size: 20px;
+    }
+}
